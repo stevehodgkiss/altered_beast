@@ -1,7 +1,8 @@
 AlteredBeast::Application.routes.draw do
   get '/session' => "sessions#create", :as => 'open_id_complete'
 
-  resources :sites, :moderatorships, :monitorship
+  resources :sites, :moderatorships
+  resources :monitorships, :only => [:create, :destroy]
 
   resources :forums do
     resources :topics do
